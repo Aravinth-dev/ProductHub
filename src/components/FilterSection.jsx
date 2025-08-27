@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { LuFilter } from "react-icons/lu";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FaListUl } from "react-icons/fa";
 import { HiViewGrid } from "react-icons/hi";
 
-const FilterSection = ({searchValue,setSearchValue,selectedCategory,setSelectedCategory}) => {
+const FilterSection = ({searchValue,setSearchValue,setSelectedCategory}) => {
   
 
   return (
-    <div className='w-[96%] h-24 shadow-xl shadow-gray-200 bg-white/60 mx-auto mb-20 rounded-2xl flex items-center justify-between px-5'>
+    <div className='max-sm:flex-wrap max-sm:py-4 max-sm:h-auto gap-3 w-[96%]  h-24 shadow-xl shadow-gray-200 bg-white/60 mx-auto mb-20 rounded-2xl flex items-center justify-between px-5'>
       
       {/* Search */}
-      <div className='w-[70%]'>
+      <div className='w-[70%] max-sm:w-full'>
         <label className="flex items-center gap-2 w-full px-2 py-2 bg-white border border-gray-300 rounded-sm 
           focus-within:ring-2 focus-within:ring-blue-500 
           focus-within:shadow-[0_0_10px_2px_rgba(59,130,246,0.6)] 
@@ -44,7 +44,7 @@ const FilterSection = ({searchValue,setSearchValue,selectedCategory,setSelectedC
       </div>
 
       {/* Filter + View Controls */}
-      <div className='flex gap-3 items-center'>
+      <div className='flex w-full gap-3 items-center'>
 
         {/* Filter Dropdown */}
         <LuFilter size={21} className='text-blue-500' />
@@ -52,7 +52,7 @@ const FilterSection = ({searchValue,setSearchValue,selectedCategory,setSelectedC
         
         >
           <SelectTrigger
-            className="w-[180px] md:w-[280px] bg-white border border-gray-300 rounded-sm 
+            className="w-[180px] max-sm:w-full md:w-[280px] bg-white border border-gray-300 rounded-sm 
               focus:ring-2 focus:ring-blue-500 
               focus:shadow-[0_0_10px_2px_rgba(59,130,246,0.6)] 
               transition-all"

@@ -25,7 +25,7 @@ const DeletePopup = ({isDelete,setIsDelete,popUpProduct,deleteProduct}) => {
 
   return (
     <div className='fixed z-[1000] inset-0 h-full bg-black/40 flex items-center justify-center'>
-      <div className='w-120 h-auto bg-white rounded-xl p-6 font-roboto flex gap-3'>
+      <div className='w-120 max-sm:w-[90%] h-auto bg-white rounded-xl p-6 font-roboto flex gap-3'>
         <div className='bg-red-100 h-fit w-fit p-3 rounded-4xl text-red-600 '>
             <IoWarningOutline size={30}/>
         </div>

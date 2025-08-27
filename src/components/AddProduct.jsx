@@ -35,7 +35,7 @@ const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct
 
   return (
     <div className="fixed z-[1000] inset-0 h-full bg-black/40 flex items-center justify-center">
-      <div className="w-120 h-auto bg-white rounded-xl p-6 font-roboto">
+      <div className="w-120 max-sm:w-[90%] h-auto bg-white rounded-xl p-6 font-roboto">
         
         
         <div className="flex justify-between items-center w-full">

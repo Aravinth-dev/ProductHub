@@ -16,10 +16,10 @@ const Header = ({ setIsOpen }) => {
 
         <div className="gap-0">
            <h2
-          className="text-2xl font-roboto font-bold 
+          className="text-2xl max-sm:text-xl font-roboto font-bold 
              bg-gradient-to-r from-[#1DA1F2] to-[#0066FF] 
              bg-clip-text text-transparent">ProductHub</h2>
-              <p className="text-gray-600 -mt-2">Manage your inventory with style</p>
+              <p className="text-gray-600 max-sm:text-[12px] -mt-2">Manage your inventory with style</p>
         </div>
       
         </div>
