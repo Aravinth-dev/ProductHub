@@ -1,8 +1,25 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { IoWarningOutline } from "react-icons/io5";
 import { Button } from "./ui/button";
 
 const DeletePopup = ({isDelete,setIsDelete,popUpProduct,deleteProduct}) => {
+
+  useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (!isDelete) return;
+    
+          if (e.key === "Escape") {
+            setIsDelete(false);
+          } 
+          else if (e.key === "Enter") {
+            e.preventDefault(); 
+            deleteProduct(); 
+          }
+        };
+    
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+      }, [isDelete, deleteProduct, setIsDelete]);
 
     if(!isDelete) return null
 

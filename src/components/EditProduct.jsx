@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Input } from "./ui/input";
 import { FaBox } from "react-icons/fa6";
@@ -13,6 +13,23 @@ import {
 import { Button } from "./ui/button";
 
 const EditProduct = ({ setEditProduct, editProduct, isEditOpen, setIsEditOpen,updateProdct,error,setError }) => {
+  useEffect(() => {
+      const handleKeyDown = (e) => {
+        if (!isEditOpen) return;
+  
+        if (e.key === "Escape") {
+          setIsEditOpen(false);
+        } 
+        else if (e.key === "Enter") {
+          e.preventDefault(); 
+          updateProdct(); 
+        }
+      };
+  
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isEditOpen, updateProdct, setIsEditOpen]);
+
   if (!isEditOpen) return null; // ✅ cleaner conditional rendering
 console.log(editProduct)
   return (
@@ -27,7 +44,7 @@ console.log(editProduct)
             </div>
             <div>
                <h2 className="text-2xl font-bold">Edit Product</h2>
-               <p className="text-base text-gray-400">Update product information</p>
+               <p className="text-sm text-gray-400">Update product information</p>
             </div>
            
           </div>
@@ -68,7 +85,7 @@ console.log(editProduct)
               }
               }} 
             />
-            <p className="text-red-500">{error.title}</p>
+            <p className="text-red-500 text-sm">{error.title}</p>
           </div>
 
           
@@ -117,7 +134,7 @@ console.log(editProduct)
                 </SelectItem>
               </SelectContent>
   </Select>
-   <p className="text-red-500">{error.category}</p>
+   <p className="text-red-500 text-sm">{error.category}</p>
 </div>
           
           <div className="grid w-full items-center gap-1">
@@ -146,7 +163,7 @@ console.log(editProduct)
               }
               }}
             />
-            <p className="text-red-500">{error.price}</p>
+            <p className="text-red-500 text-sm">{error.price}</p>
           </div>
 
          
@@ -176,7 +193,7 @@ console.log(editProduct)
                 }
               }}
             />
-             <p className="text-red-500">{error.images}</p>
+             <p className="text-red-500 text-sm">{error.images}</p>
           </div>
 
           

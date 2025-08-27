@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Input } from "./ui/input";
 import { FaBox } from "react-icons/fa6";
@@ -14,6 +14,22 @@ import { Button } from "./ui/button";
 
 const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct,error,setError }) => {
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isopen) return;
+
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      } 
+      else if (e.key === "Enter") {
+        e.preventDefault(); 
+        createProduct(); 
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isopen, createProduct, setIsOpen]);
 
   if (!isopen) return null; // ✅ cleaner conditional rendering
 
@@ -29,7 +45,7 @@ const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct
             </div>
             <div>
                <h2 className="text-2xl font-bold">Add Product</h2>
-               <p className="text-base text-gray-400">Create a new product for your inventory</p>
+               <p className="text-sm text-gray-400">Create a new product for your inventory</p>
             </div>
            
           </div>
@@ -42,7 +58,7 @@ const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct
         </div>
 
        
-        <div className="mt-4 flex flex-col gap-4 w-full">
+        <div className="mt-4 flex flex-col gap-2 w-full">
           
           <div className="grid w-full items-center gap-1 ">
             <label htmlFor="product">Product Name <span>*</span></label>
@@ -69,7 +85,7 @@ const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct
                 }))
               }} }
             />
-            <p className="text-red-500">{error.title}</p>
+            <p className="text-red-500 text-sm">{error.title}</p>
           </div>
 
           
@@ -117,7 +133,7 @@ const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct
                 </SelectItem>
               </SelectContent>
   </Select>
-   <p className="text-red-500">{error.category}</p>
+   <p className="text-red-500 text-sm">{error.category}</p>
 </div>
 
           
@@ -147,7 +163,7 @@ const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct
               }
               }}
             />
-            <p className="text-red-500">{error.price}</p>
+            <p className="text-red-500 text-sm">{error.price}</p>
           </div>
 
          
@@ -177,7 +193,7 @@ const AddProduct = ({ setAddProduct, addProduct, isopen, setIsOpen,createProduct
                 }
               }}
             />
-            <p className="text-red-500">{error.images}</p>
+            <p className="text-red-500 text-sm">{error.images}</p>
           </div>
 
           
