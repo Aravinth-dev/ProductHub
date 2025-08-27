@@ -8,10 +8,10 @@ const FilterSection = ({searchValue,setSearchValue,setSelectedCategory}) => {
   
 
   return (
-    <div className='max-sm:flex-wrap max-sm:py-4 max-sm:h-auto gap-3 w-[96%]  h-24 shadow-xl shadow-gray-200 bg-white/60 mx-auto mb-20 rounded-2xl flex items-center justify-between px-5'>
+    <div className='max-sm:flex-wrap  max-sm:py-4 max-sm:h-auto gap-3 w-[96%]  h-24 shadow-xl shadow-gray-200 bg-white/60 mx-auto mb-20 rounded-2xl flex items-center justify-between px-5'>
       
       {/* Search */}
-      <div className='w-[70%] max-sm:w-full'>
+      <div className='w-[70%]  max-sm:w-full'>
         <label className="flex items-center gap-2 w-full px-2 py-2 bg-white border border-gray-300 rounded-sm 
           focus-within:ring-2 focus-within:ring-blue-500 
           focus-within:shadow-[0_0_10px_2px_rgba(59,130,246,0.6)] 
@@ -44,7 +44,7 @@ const FilterSection = ({searchValue,setSearchValue,setSelectedCategory}) => {
       </div>
 
       {/* Filter + View Controls */}
-      <div className='flex w-full gap-3 items-center'>
+      <div className='flex max-sm:w-full gap-3 items-center'>
 
         {/* Filter Dropdown */}
         <LuFilter size={21} className='text-blue-500' />
